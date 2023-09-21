@@ -14,6 +14,33 @@ namespace Filmproject
         {
             Fajbeolvasas("filmadatbazis.csv");
         }
+        private static void f7()
+        {
+            
+        }
+        private static object leggyakoribmufaj()
+        {
+            var mufagyakorisag = new Dictionary<string, int>();
+            foreach(var item in filmek)
+            {
+                foreach(var mufaj in item.Mufaj)
+                {
+                    if (mufagyakorisag.ContainsKey(mufaj))
+                    {
+                        mufagyakorisag.Add(mufaj, 1);
+                    }
+                    else
+                    {
+                        mufagyakorisag[mufaj] +=1;
+                    }
+                }
+            }
+            foreach(KeyValuePair<string,int> mufaj in mufagyakorisag)
+            {
+                Console.WriteLine($"{mufaj.Key} - {mufaj.Value}");
+            }
+            return "";
+        }
         private static void f4()
         {
             string keresendo = Console.ReadLine();
